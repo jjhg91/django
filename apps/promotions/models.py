@@ -4,12 +4,12 @@ from apps.users.models import usuarios
 # Create your models here.
 
 class bonusDiario(models.Model):
-	id_bonusDiario = models.IntegerField(primary_key=True)
+	id_bonusDiario = models.AutoField(primary_key=True, unique=True)
 	seguidilla = models.IntegerField()
 	puntos = models.IntegerField()
 
 class promociones(models.Model):
-	id_promocion = models.IntegerField(primary_key=True)
+	id_promocion = models.AutoField(primary_key=True, unique=True)
 	promocion = models.CharField(max_length=50)
 	tipoPromocion = models.CharField(max_length=50)
 	puntosObtener = models.IntegerField()

@@ -4,7 +4,7 @@ from apps.users.models import usuarios
 # Create your models here.
 
 class statusSeguidor(models.Model):
-	id_statusSeguidor = models.IntegerField(primary_key=True)
+	id_statusSeguidor = models.AutoField(primary_key=True, unique=True)
 	statusSeguidor = models.CharField(max_length=50)
 
 class seguidores(models.Model):

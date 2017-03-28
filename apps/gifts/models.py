@@ -4,14 +4,14 @@ from apps.users.models import usuarios
 # Create your models here.
 
 class regalos(models.Model):
-	id_regalos = models.IntegerField(primary_key=True)
+	id_regalos = models.AutoField(primary_key=True, unique=True)
 	regalo = models.CharField(max_length=50)
 	puntosNecesarios = models.IntegerField()
 	fotoRegalo = models.ImageField(upload_to='img/gift')
 	descripcionRegalo = models.CharField(max_length=100)
 
 class statusRegalo(models.Model):
-	id_statusRegalo = models.IntegerField(primary_key=True)
+	id_statusRegalo = models.AutoField(primary_key=True, unique=True)
 	statusRegalo = models.CharField(max_length=50)
 
 class regaloObtenido(models.Model):

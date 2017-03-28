@@ -94,7 +94,7 @@ class usuarios(models.Model):
 			if busqueda == 0:
 				puntos.objects.create(id_usuarios2=abc,
 										jugadas=0,
-										jugadasGanados=0,
+										jugadasGanadas=0,
 										potes=0,
 										potesGanados=0,
 										quinelas=0,
@@ -134,6 +134,7 @@ class puntos(models.Model):
 		self.acumulados = acumulado
 		super(puntos, self).save(*args, **kwargs)
 		print('SUMAR PUNTOS SE ESTA EJECUTANDO')
+
 
 
 
