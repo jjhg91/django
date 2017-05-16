@@ -1,0 +1,47 @@
+{% extends 'base/_inicio.html' %}
+
+{% load staticfiles %}
+{% block static %}
+	<link rel="stylesheet" href="{% static 'css/#' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock static %}
+
+{% block section %}
+
+	<form class="for_partido" name="partidos"  action="php/jugada.php" method="POST">
+		<div class="equipo">
+			<span>HOME</span>
+			<input type="radio" name="jugada" id="home" value="2">
+			<label for="home">IDHOME</label>
+		</div>
+		<div class="equipo em">
+			<span class="em"><p class="em">empate</p></span>
+			<input type="radio" name="jugada" id="em" value="3">
+			<label for="em">IDEMPATE</label>
+		</div>
+		<div class="equipo">
+			<span>VISITANTE</span>
+			<input type="radio" name="jugada" id="vi" value="4">
+			<label for="vi">IDVISITANTE</label>
+		</div>
+		<div class="inf">
+			<span class="fech">FECHA</span>
+			<p><?php echo $deport ?></p>
+			<p><?php echo $lig ?></p>
+		</div>
+
+		<input type="text" class="part" id="part" name="part" value="PARTIDO" readonly="readonly">
+
+		<input type="text" id="punto" name="punto" value="1">
+		<input type="submit" value="Enviar">
+	</form>
+
+{% endblock section %}
+
+
+
+{% block aside %}
+	
+{% endblock aside %}

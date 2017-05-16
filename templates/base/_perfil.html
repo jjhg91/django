@@ -56,23 +56,24 @@
 	<div class="padre">{# AQUI VIENE EL DIV PADRE #}
 
 		<section class="cont">{# AQUI VIENE EL SECTION DONDE VA EL CONTENIDO #}
-			{% block section %}
-			{% endblock %}
-		</section>
-
-		<aside class="publicidad">{# AQUI VIENE EL ASIDE DONDE VA LA BARRA DERECHA CON PUBLICIDAD Y INFORMACION #}
-
-			<div class="invi">{# AQUI DA LA URL PARA INVITAR A SUS REFERIDOS #}
-				<p class="titulo">Invita a tus amigos</p>
-				<p class="contenido">comparte el siguiente link con tus amigos y gana 2000 puntos por cada referido obtenido y el 25% por cada promocion que completen tus referidos</p>
-				<form class="invi">
-					<label class="invi" for="invitar">Tu link de invitacion</label>
-					<input class="invi" type="text" id="invitar" name="invitar" value="AQUI VA EL ID DEL USUARIO PARA REGISTRAR LOS REFERIDOS" readonly="readonly">
-				</form>
+			<div class="categoria">
+				<ul>
+					<li><a href="#" class="act">PERFIL</a></li>
+					<li><a href="#">JUGADAS</a></li>
+					<li><a href="#>">EN JUEGO</a></li>
+					<li><a href="#">PROMOCIONES</a></li>
+					<li><a href="#">REFERIDOS</a></li>
+					<li><a href="#">SOCIAL</a><li>
+					<li><a href="#">REGALOS</a></li>
+					<li><a href="#">RECARGAS</a></li>
+				</ul>
 			</div>
-			{% block aside %}
-			{% endblock %}
-		</aside>
+			<div class="perfil">
+				{% block section %}
+				{% endblock %}
+			</div>
+			
+		</section>
 
 		<footer class="pie">{# AQUI VIENE EL FOOTER CON LA INFORMACION Y CONTACTO DE LA PAGINA WEB #}
 			

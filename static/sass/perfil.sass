@@ -1,0 +1,159 @@
+@import 'base/variables'
+@import 'base/_header'
+@import 'base/_perfil'
+
+
+div.opt
+	font-size: 1.3em
+	font-weight: bold
+	margin-left: 30px 
+	margin-top: -15px
+	color: #dcecfc	
+
+span.per
+	background-color: #176093
+	display: inline-block
+	margin-right: 30px
+	padding-left: 3px
+	padding-right: 5px
+	a
+		color: #dcecfc
+		text-decoration: none
+	&:hover
+		color: #032A46
+
+
+div.perfil
+	margin: 40px 20px 20px 20px
+	border: 2px solid #032A46
+	border-radius: 5px
+
+
+form.datos,
+form.imagen
+	display: block
+	width: 50%
+	padding-top: 10px
+	padding-bottom: 10px 
+	div.grup
+		margin-bottom: 5px 
+	label
+		display: inline-block
+		color: #dcecfc
+		width: 25%
+		text-align: right
+	input[type="text"],
+	input[type="file"],
+	select
+		display: inline-block
+		padding: 5px 
+		font-size: 0.8em
+		border: 1px solid #032A46
+		background-color: #032A46
+		border-radius: 5px
+		color: #dcecfc
+		cursor: pointer
+		width: 50%
+	input[type="text"]:hover,
+	input[type="file"]:hover,
+	select:hover
+		background-color: #176093
+		border: 1px solid #dcecfc
+	input[type="text"]:focus,
+	input[type="file"]:focus,
+	select:focus
+		background: #176093
+		border: 1px solid #dcecfc
+	input[type="submit"]
+		display: inline-block
+		font-size: 1em
+		border: none
+		background-color: rgb(190,46,46)
+		border-radius: 5px
+		color: #dcecfc
+		cursor: pointer
+		-webkit-transition: all 0.2s ease 
+		-o-transition: all 0.2s ease
+		transition: all 0.2s ease
+		margin-top: 20px
+		margin-left: 25%
+		padding: 10px 
+		width: 50%
+		box-shadow: 5px 5px rgba(44,44,44,0.4)
+		border-bottom: 3px solid rgb(80,19,19)
+	&:hover
+		background: rgb(120,29,29)
+		box-shadow: 3.5px 3.5px rgba(44,44,44,0.7)
+		border-bottom: 2px solid rgb(80,19,19)
+	&:active
+		background: rgb(80,19,19)
+		box-shadow: 2px 2px rgba(44,44,44,0.9)
+
+div.gano
+	color: #dcecfc
+	margin: 10px 20px 0px 20px
+	padding: 10px
+	border-radius: 5px
+	img.foot
+		width: 100px
+		height: 100px
+		display: inline-block
+		color: #dcecfc
+		border: 3px solid #032A46
+		border-radius: 50%
+	div 
+		display: inline-block
+		margin-top: 10px
+		margin-left: 20px
+		font-weight: bold
+		p.use,
+		p.inff span
+			border-radius: 10px
+			padding: 5px
+			font-size: 1.5em
+			background: #032A46
+			display: inline-block
+		p.inff 
+			span
+				margin-top: 5px
+				margin-right: 20px
+
+
+div.infgrafica
+	span
+		display: inline-block
+		background: #FFFFFF
+		margin-top: 50px
+		padding: 10px
+		border-radius: 10%
+		p
+			padding-left: 15px
+			padding-right: 15px
+			font-size: 0.9em
+		p.total
+			border-top: 2px solid #cccccc
+			margin-top: 5px
+			font-weight: bold
+	span.pts
+		margin-left: 7%
+	span.juegos
+		margin-left: 40%
+
+div.graficas
+	display: block
+
+div.graficas1
+	width: 52%
+	height: 300px
+	display: inline-block
+	margin: 1%
+
+div.graficas2
+	width: 44%
+	height: 300px
+	display: inline-block
+	margin: 1%
+
+
+
+@import 'base/_footer'

@@ -1,0 +1,30 @@
+{% extends 'base/_inicio.html' %}
+
+{% load staticfiles %}
+{% block static %}
+	<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock static %}
+
+{% block section %}
+	<span class="deport">LIGA</span>
+	<div class="tabla">
+		<img src="imagenes/bat.png" class="deporte">
+		<div class="info">
+			<p class="deport">HOME</p>
+			<p class="deport vs">VS</p>
+			<p class="deport">VISITANTE</p>
+			<div class="inf">
+				<time class="fecha">FECHA</time>
+				<a href="#" class="liga">LIGA</a>
+			</div>
+			<div class="boton">
+				<a href="partido.php?partido='.$link.'">
+					<span>Jugar</span>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock section %}
