@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from apps.users.views import perfil, enjuego, jugadas, referidos
 
 urlpatterns = [
-  
+	url(r'^$', perfil.as_view(), name='perfil'),
+	url(r'^enjuego/', enjuego.as_view(), name='enjuego'),
+	url(r'^jugadas/', jugadas.as_view(), name='jugadas'),
+	url(r'^referidos/', referidos.as_view(), name='referidos'),
+	
 ]

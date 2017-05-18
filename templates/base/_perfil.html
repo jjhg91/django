@@ -18,10 +18,10 @@
 				<img src="">
 				<div class="nombre"> NOMBRE USUARIO</div>
 				<ul>
-					<li class="in"><a href="#">PUNTOS ACUMULADOS<span>pts</span></a></li>
-					<li class="in enju"><a href="#">PUNTOS EN JUEGO <br><span>en juego</span></a></li>
-					<li class="in"><a href="#" class="b1">Ranking</a></li>
-					<li class="in"><a href="#" class="b2">Suscribete VIP</a></li>
+					<li class="in"><a href="{% url 'jugadas' %}">PUNTOS ACUMULADOS<span>pts</span></a></li>
+					<li class="in enju"><a href="{% url 'enjuego' %}">PUNTOS EN JUEGO <br><span>en juego</span></a></li>
+					<li class="in"><a href="{% url 'ranking' %}" class="b1">Ranking</a></li>
+					<li class="in"><a href="{% url 'suscripcion' %}" class="b2">Suscribete VIP</a></li>
 					<li class="in"><a href="#" class="b3">Recarga</a></li>
 				</ul>
 			</div>
@@ -38,14 +38,14 @@
 				</ul>
 				<p>POTE</p>
 				<p>QUINELAS</p>
-
+				{% load staticfiles %}
 				<script src="{% static 'js/ocultar_deporte.js' %}"></script>
 			</div>
 		</nav>
 
 		<ul class="menu2">{# AQUI ESTA EL MENU DE LA BARRA SUPERIR IZQUIERDA ¡¡QUE TIENE QUE SER MODIFICADO!! #}
-			<li><a href="#" title="Regalos"><span class="icon-gift"></span></a></li>
-			<li><a href="#" title="Perfil"><span class="icon-user"></span></a></li>
+			<li><a href="{% url 'regalos' %}" title="Regalos"><span class="icon-gift"></span></a></li>
+			<li><a href="{% url 'perfil' %}" title="Perfil"><span class="icon-user"></span></a></li>
 			<li><a href="#" title="Salir"><span class="icon-switch"></span></a></li>
 		</ul>
 		<a href="#" class="punto_g"><span class="punto_g">Puntos gratis</span></a>
@@ -58,11 +58,11 @@
 		<section class="cont">{# AQUI VIENE EL SECTION DONDE VA EL CONTENIDO #}
 			<div class="categoria">
 				<ul>
-					<li><a href="#" class="act">PERFIL</a></li>
-					<li><a href="#">JUGADAS</a></li>
-					<li><a href="#>">EN JUEGO</a></li>
+					<li><a href="{% url 'perfil' %}" class="act">PERFIL</a></li>
+					<li><a href="{% url 'jugadas' %}">JUGADAS</a></li>
+					<li><a href="{% url 'enjuego'%}>">EN JUEGO</a></li>
 					<li><a href="#">PROMOCIONES</a></li>
-					<li><a href="#">REFERIDOS</a></li>
+					<li><a href="{% url 'referidos' %}">REFERIDOS</a></li>
 					<li><a href="#">SOCIAL</a><li>
 					<li><a href="#">REGALOS</a></li>
 					<li><a href="#">RECARGAS</a></li>

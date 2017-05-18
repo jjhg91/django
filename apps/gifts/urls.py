@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from apps.gifts.views import regalos
 urlpatterns = [
-    
+    url(r'^regalos/', regalos.as_view(), name='regalos'),
 ]

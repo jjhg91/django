@@ -22,8 +22,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^inicio/', include('apps.sports.urls')),
-] 
+    url(r'^', include('apps.gifts.urls')),
+    url(r'^partido/', include('apps.plays.urls')),
+    url(r'^', include('apps.promotions.urls')),
+    url(r'^', include('apps.social.urls')),
+    url(r'^', include('apps.sports.urls')),
+    url(r'^', include('apps.startContact.urls')),
+    url(r'^perfil/', include('apps.users.urls')),
+]
 
 if settings.DEBUG is True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

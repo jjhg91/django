@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from apps.social.views import ranking
 urlpatterns = [
-    
+    url(r'^ranking/', ranking.as_view(), name='ranking'),
 ]

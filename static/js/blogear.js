@@ -4,7 +4,7 @@ $(".prueba").click(function() {
   if(menu === 0){
     menu = 1;
    $(".contenedor-formulario").css({
-  "width": "100%",
+  "width": "90%",
   "color": "#f2f2f2",
   "padding": "50px",
   "overflow": "visible"

@@ -131,3 +131,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')#'C:/Users/JHG/Desktop/desarrolloF/finish/media/'
 MEDIA_URL = '/media/'
 
+
+from django.core.urlresolvers import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('inicio/')

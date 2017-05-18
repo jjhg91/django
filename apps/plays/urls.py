@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from apps.plays.views import partido
 
 urlpatterns = [
-   
+   url(r'^$', partido.as_view(), name='partido'),
 ]

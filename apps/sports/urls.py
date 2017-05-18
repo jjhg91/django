@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 #from django.views.generic import TemplateView
-from apps.sports.views import inicio
+from apps.sports.views import inicio, deporte, liga
 
 urlpatterns = [
-	url(r'^$', inicio.as_view(), name='inicio'),
-	
+	url(r'^inicio/', inicio.as_view(), name='inicio'),
+	url(r'^deporte/', deporte.as_view(), name='deporte'),
+	url(r'^liga/', liga.as_view(), name='liga'),
 ]
