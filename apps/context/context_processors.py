@@ -8,8 +8,8 @@ def list_deportes(request):
 	return deporte
 
 def list_puntos(request):
-	usuario = request.user
-	punto = puntos.objects.filter(id_usuarios2__id_usuarios=usuario).values('acumulados','enJuego')
+	usuario = request.user.id
+	punto = puntos.objects.filter(id_usuarios2__id=usuario).values('acumulados','enJuego')
 	return punto
 
 def user_image(request):

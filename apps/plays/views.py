@@ -4,7 +4,6 @@ from django.views.generic import TemplateView, ListView, DetailView, FormView
 
 from apps.plays.models import partidos
 from apps.plays.forms import jugadaForm
-import django
 
 class partid(DetailView):
 	template_name = "partido.html"
@@ -25,11 +24,13 @@ class partido(FormView):
 
 	def get_initial(self,**kwargs):
 		initial = super(partido, self).get_initial()
-		initial['puntosJugados'] = 1
-		initial['jugada'] = 3
-		initial['fechaJugada'] = '09/06/1991'
-		initial['id_usuarios1'] = 7
+		initial['id_usuarios1'] = self.request.user
 		initial['id_partidos1'] = self.kwargs['id_partidos']
+		initial['jugada'] = 3
+		initial['puntosJugados'] = 1
+		
+		initial['fechaJugada'] = '09/06/1991'
+		
 		return initial
 
 	def get_context_data(self,**kwargs):
@@ -39,7 +40,7 @@ class partido(FormView):
 		#print(self.request.user.username)
 		return context
 	
-	print(form_class)
+	
 	def form_valid(self, form):
 		print('aqui')
 		if form.is_valid():

@@ -13,8 +13,12 @@
 	<p>hola</p>
 	<form action="" method="POST"> 
 	{% csrf_token %}
+
+	{{form.jugada.2}}
+	{{form.jugada.3}}
+	{{form.jugada.4}}
+
 	
-	{{form.as_p}}
 
 	<input type="submit" value="PROBANDO">
 	</form>

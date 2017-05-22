@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import F,Sum,Count
 from apps.users.models import usuarios,puntos
 from apps.sports.models import deportes,ligas,equipos
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -36,10 +37,12 @@ class partidos(models.Model):
 			jugadas.objects.filter(id_partidos1 = self.id_partidos).update(id_rjugada1=resultado)
 #UPDATE DE JUGADASGANADAS EN TABLA PUNTOS PARA LA SUMA DE PUNTOS ACUMULADOS
 			for hola in jugadas.objects.filter(id_partidos1__id_partidos=self.id_partidos).values('id_usuarios1').annotate(sumar=Sum('id_usuarios1')):
-				busca = jugadas.objects.filter(id_usuarios1__id_usuarios = hola['id_usuarios1'], jugada__id_rjugada=F('id_rjugada1__id_rjugada')).values('id_usuarios1').annotate(total=Sum('puntosGanar'))
+#				busca = jugadas.objects.filter(id_usuarios1__id_usuarios = hola['id_usuarios1'], jugada__id_rjugada=F('id_rjugada1__id_rjugada')).values('id_usuarios1').annotate(total=Sum('puntosGanar'))
+				busca = jugadas.objects.filter(id_usuarios1__username = hola['id_usuarios1'], jugada__id_rjugada=F('id_rjugada1__id_rjugada')).values('id_usuarios1').annotate(total=Sum('puntosGanar'))
 				print('hola: ',hola['id_usuarios1'])
 				print('busca: ',busca[0]['total'])
-				put=puntos.objects.get(id_usuarios2__id_usuarios = hola['id_usuarios1'])
+#				put=puntos.objects.get(id_usuarios2__id_usuarios = hola['id_usuarios1'])
+				put=puntos.objects.get(id_usuarios2__username = hola['id_usuarios1'])
 				put.jugadasGanadas = busca[0]['total']
 				put.save()
 				
@@ -57,7 +60,8 @@ class resultadoJugadas(models.Model):
 
 class jugadas(models.Model):
 	id_jugadas = models.AutoField(primary_key=True, unique=True)
-	id_usuarios1 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+#	id_usuarios1 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+	id_usuarios1 = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	id_partidos1 = models.ForeignKey(partidos, null=False, blank=False, on_delete=models.CASCADE)
 	puntosJugados = models.IntegerField()
 	puntosGanar = models.IntegerField(default=0)
@@ -101,7 +105,8 @@ class pote(models.Model):
 		return self.nombrePote
 
 class jugadaPote(models.Model):
-	id_usuarios10 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+#	id_usuarios10 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+	id_usuarios10 = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	id_pote1 = models.ForeignKey(pote, null=False, blank=False, on_delete=models.CASCADE)
 	resultadoHPote = models.IntegerField()
 	resultadoVPote = models.IntegerField()
@@ -121,7 +126,8 @@ class porraEquipos(models.Model):
 	id_rjugada = models.ForeignKey(resultadoJugadas, null=False, blank=False, on_delete=models.CASCADE)
 
 class jugadaPorra(models.Model):
-	id_usuarios11 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+#	id_usuarios11 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+	id_usuarios11 = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	id_porra2 = models.ForeignKey(porra, null=False, blank=False, on_delete=models.CASCADE)
 	id_partidos5 = models.ForeignKey(partidos, null=False, blank=False, on_delete=models.CASCADE)
 	id_jugadaPorra = models.ForeignKey(resultadoJugadas, null=False, blank=False, on_delete=models.CASCADE)

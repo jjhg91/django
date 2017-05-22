@@ -31,6 +31,7 @@ class deporte(ListView):
 
 	def get_context_data(self,**kwargs):
 		context = super(deporte, self).get_context_data(**kwargs)
+		context['liga'] = ligas.objects.filter(id_deportes1 = self.kwargs['hii'])
 		context['object'] = self.object_list
 		if not context['object']:
 			context['msj'] = 'Elegir un deporte por favor'

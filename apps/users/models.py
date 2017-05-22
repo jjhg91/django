@@ -68,8 +68,8 @@ class genero(models.Model):
 
 
 class usuarios(models.Model):
-	#id_usuarios	= models.OneToOneField(User)
-	id_usuarios = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+	id_usuarios = models.OneToOneField(User)
+	#id_usuarios = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	foto = models.ImageField(upload_to='perfil')
 	banner = models.ImageField(upload_to='banner')
 	id_zhoraria1 = models.ForeignKey(zonaHoraria, null=False, blank=False, on_delete=models.CASCADE)
@@ -93,11 +93,13 @@ class usuarios(models.Model):
 		
 		print(self.id_usuarios.pk)
 		for abc in usuarios.objects.filter(id_usuarios__email=c, id_usuarios__username=u):
-			print(abc.id_usuarios.email)
-			busqueda = puntos.objects.filter(id_usuarios2=abc).count()
-			
+			#print(abc.id_usuarios.email)
+						
+			busqueda = puntos.objects.filter(id_usuarios2__username=abc).count()
+		
 			if busqueda == 0:
-				puntos.objects.create(id_usuarios2=abc,
+				print('HOOOOOOOOOOOOOOOLA')
+				puntos.objects.create(id_usuarios2=abc.id_usuarios,
 										jugadas=0,
 										jugadasGanadas=0,
 										potes=0,
@@ -116,7 +118,8 @@ class usuarios(models.Model):
 				print('YA TIENES UNA TABLA DE PUNTOS')
 
 class puntos(models.Model):
-	id_usuarios2 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+#	id_usuarios2 = models.ForeignKey(usuarios, null=False, blank=False, on_delete=models.CASCADE)
+	id_usuarios2 = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	jugadas = models.IntegerField(null=True, blank=True)
 	jugadasGanadas = models.IntegerField(null=True, blank=True)
 	potes = models.IntegerField(null=True, blank=True)
