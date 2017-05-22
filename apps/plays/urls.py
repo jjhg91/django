@@ -18,5 +18,5 @@ from django.contrib import admin
 from apps.plays.views import partido
 
 urlpatterns = [
-   url(r'^$', partido.as_view(), name='partido'),
+   url(r'^(?P<id_partidos>\d+)$', partido.as_view(), name='partido'),
 ]

@@ -16,40 +16,29 @@
 
 {% block section %}
 	<a href="admin/" id="chao">Admin</a><br>
-	
-	<div class="fff">
-		<form action="" method="post">
-		{% csrf_token %}
-		{{form.correo}}
-		<input type="submit" value="enviar">
-		</form>
-		
-
-	</div>
 
 	
 	<div class="prueba" name="prueba">PRUEBA</div>
 	<div class="contenedor-formulario">
 		<div class="wrap">
-			<form action="php/logear.php" class="formulario" name="formulario_registro" method="post">
-			
+			<form action="" class="formulario" name="formulario_registro" method="post"> {% csrf_token %}
 				
 					<div class="input-group">
-						<input type="email" id="email" name="username">
-						<label class="label" for="email">Correo</label>
+						{#<input type="email" id="email" name="username">#}
+						{{form.username}}
+						<label class="label" for="email">{{form.username.label}}</label>
 					</div>
 					
 					<div class="input-group">
-						<input type="password" id="pass" name="password">
-						<label class="label" for="pass">Contraseña</label>
+						{#<input type="password" id="pass" name="password">#}
+						{{form.password}}
+						<label class="label" for="pass">{{form.password.label}}</label>
 					</div>
 					<div class="submit">
-						<input type="submit" id="btn-submit" value="Enviar">
+						<input type="submit" id="btn-submit" value="Login">
 						<br>
 						<a href="#">Regitrate</a>
 					</div>
-			}
-
 			</form>
 		</div>
 	</div>

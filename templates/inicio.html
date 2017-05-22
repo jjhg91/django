@@ -12,19 +12,22 @@
 
 {% block section %}
 	{# FAVORITO #}
+
+	
 	<h3>EQUIPOS</h3>
         {% for equipos in object_list %}
             <p>{{ equipos.equipos }}</p>
         {% endfor %}
-        </br>
+        <br>
 
-    <h3>DEPORTES</h3>
+	 <h3>DEPORTES</h3>
    		{% for deportes in saco %}
         	<p>{{ deportes.deportes }}</p>
    		{% endfor %}
+   
    		
 
-   		</br>
+   		<br>
 
 	<div class="part">
 		<div class="opt">

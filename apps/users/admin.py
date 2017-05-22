@@ -3,9 +3,9 @@ from django.contrib import admin
 from apps.users.models import pais,zonaHoraria,postal,nombre,apellido,natalidad,ediPerfil,nivelUsuario,genero,usuarios,statusUsario,puntos
 
 # Register your models here.
-
+#'usuario','correo','contra',
 class usuariosAdmin(admin.ModelAdmin):
-	list_display = ('usuario','correo','id_nombre1','id_apellido1','contra','foto','banner','id_zhoraria1')
+	list_display = ('id_nombre1','id_apellido1','foto','banner','id_zhoraria1')
 #	list_filter = ('')
 #	search_fields = ('')
 #	filter_horizontal = ('',)

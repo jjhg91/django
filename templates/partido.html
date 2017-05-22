@@ -10,6 +10,16 @@
 
 {% block section %}
 
+	<p>hola</p>
+	<form action="" method="POST"> 
+	{% csrf_token %}
+	
+	{{form.as_p}}
+
+	<input type="submit" value="PROBANDO">
+	</form>
+	<p>chao</p>
+
 	<form class="for_partido" name="partidos"  action="php/jugada.php" method="POST">
 		<div class="equipo">
 			<span>HOME</span>
@@ -28,8 +38,8 @@
 		</div>
 		<div class="inf">
 			<span class="fech">FECHA</span>
-			<p><?php echo $deport ?></p>
-			<p><?php echo $lig ?></p>
+			<p>DEPORTE</p>
+			<p>LIGA</p>
 		</div>
 
 		<input type="text" class="part" id="part" name="part" value="PARTIDO" readonly="readonly">

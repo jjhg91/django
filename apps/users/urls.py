@@ -17,10 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from apps.users.views import perfil, enjuego, jugadas, referidos
 
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
-	url(r'^$', perfil.as_view(), name='perfil'),
-	url(r'^enjuego/', enjuego.as_view(), name='enjuego'),
-	url(r'^jugadas/', jugadas.as_view(), name='jugadas'),
-	url(r'^referidos/', referidos.as_view(), name='referidos'),
+	url(r'^$', login_required(perfil.as_view()), name='perfil'),
+	url(r'^enjuego/', login_required(enjuego.as_view()), name='enjuego'),
+	url(r'^jugadas/', login_required(jugadas.as_view()), name='jugadas'),
+	url(r'^referidos/', login_required(referidos.as_view()), name='referidos'),
 	
 ]

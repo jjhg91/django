@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 from datetime import datetime
+
 
 # Create your models here.
 
@@ -63,11 +65,11 @@ class genero(models.Model):
 	def __str__(self):
 		return self.genero
 
+
+
 class usuarios(models.Model):
-	id_usuarios = models.AutoField(primary_key=True, unique=True)
-	usuario = models.CharField(max_length=50)
-	correo = models.EmailField()
-	contra = models.CharField(max_length=50)
+	#id_usuarios	= models.OneToOneField(User)
+	id_usuarios = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	foto = models.ImageField(upload_to='perfil')
 	banner = models.ImageField(upload_to='banner')
 	id_zhoraria1 = models.ForeignKey(zonaHoraria, null=False, blank=False, on_delete=models.CASCADE)
@@ -81,16 +83,19 @@ class usuarios(models.Model):
 	id_nivusuario1 = models.ForeignKey(nivelUsuario, null=False, blank=False, on_delete=models.CASCADE)
 	id_stusUsario1 = models.ForeignKey(statusUsario, null=False, blank=False, on_delete=models.CASCADE)
 	def __str__(self):
-		return self.usuario
+		return self.id_usuarios.username
 #AQUI SE BUSCA SI EL USUARIO TIENE PUNTOS Y SI NO SE LE AGREGAN PARA REGISTRARSE
+	
 	def save(self, *args, **kwargs):
-		c= self.correo
-		u= self.usuario
+		c= self.id_usuarios.email
+		u= self.id_usuarios.username
 		super(usuarios, self).save(*args, **kwargs)
 		
-		for abc in usuarios.objects.filter(correo=c, usuario=u):
-			busqueda = puntos.objects.filter(id_usuarios2=abc.id_usuarios).count()
-		
+		print(self.id_usuarios.pk)
+		for abc in usuarios.objects.filter(id_usuarios__email=c, id_usuarios__username=u):
+			print(abc.id_usuarios.email)
+			busqueda = puntos.objects.filter(id_usuarios2=abc).count()
+			
 			if busqueda == 0:
 				puntos.objects.create(id_usuarios2=abc,
 										jugadas=0,

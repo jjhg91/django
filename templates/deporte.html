@@ -13,35 +13,47 @@
 		<div class="opt">
 			<span class="deport">DEPORTE</span>
 		</div>
-		<div class="tabla">
-			<img src="imagenes/bat.png" class="deporte">
-			<div class="info">
-				<p class="deport">HOME</p>
-				<p class="deport vs">VS</p>
-				<p class="deport">VISITANTE</p>
-				<div class="inf">
-					<time class="fecha">FECHA</time>
-					<a href="#" class="liga">LIGA</a>
-				</div>
-				<div class="boton">
-					<a href="partido.php?partido='.$link.'">
-						<span>Jugar</span>
-					</a>
+
+
+	{{msj}}
+
+	{% for partidos in object_list  %}	
+		
+			<div class="tabla">
+				<img src="imagenes/bat.png" class="deporte">
+				<div class="info">
+					<p class="deport">HOME: {{partidos.id_equiposh.equipos}}</p>
+					<p class="deport vs">VS</p>
+					<p class="deport">VISITANTE: {{partidos.id_equiposv.equipos}}</p>
+					<div class="inf">
+						<time class="fecha">FECHA: {{partidos.fecha}}</time>
+						<a href="#" class="liga">LIGA: {{partidos.id_ligas2.ligas}}</a>
+					</div>
+					<div class="boton">
+						<a href="/partido/{{partidos.id_partidos}}">
+							<span>Jugar</span>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		
+	{% endfor %}
 	</div>
 {% endblock section %}
 
 
 
 {% block aside %}
-	<div class="lig">
-		<p>LIGA</p>
-		<a class="lig" href="liga/nombre_de_liga'">
-			<div class="liga">
-				<span>NOMBRE DE LIGA</span>
-			</div>
-		</a>
-	</div>
+
+	{% for ligas in liga %}
+		<div class="lig">
+			<p>LIGAS </p>
+			<a class="lig" href="liga/nombre_de_liga">
+				<div class="liga">  
+					<span>NOMBRE DE LIGA: {{ligas.ligas}}</span>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+
 {% endblock aside %}

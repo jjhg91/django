@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 #from django.views.generic import TemplateView
 from apps.sports.views import inicio, deporte, liga
 
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
-	url(r'^inicio/', inicio.as_view(), name='inicio'),
-	url(r'^deporte/', deporte.as_view(), name='deporte'),
-	url(r'^liga/', liga.as_view(), name='liga'),
+	url(r'^inicio/', login_required(inicio.as_view()), name='inicio'),
+	url(r'^deporte/(?P<hii>\d+)', login_required(deporte.as_view()), name='deporte'),
+	url(r'^liga/', login_required(liga.as_view()), name='liga'),
 ]

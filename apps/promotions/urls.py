@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from apps.promotions.views import  promociones, suscripcion
+
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
 	#url(r'^promociones/', promociones.as_view(), name='promociones'),
-	url(r'^suscripcion/', suscripcion.as_view(), name='suscripcion'),
+	url(r'^suscripcion/', login_required(suscripcion.as_view()), name='suscripcion'),
 
     
 ]

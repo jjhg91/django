@@ -15,11 +15,11 @@
 		<nav>{# AQUI ESTA EL NAV DONDE ESTA LA INFORMACION DEL USUARIOS Y EL NAVEGADOR #}
 
 			<div class="perfil">{# PERFIL INFORMACION DEL USUARIOS#}
-				<img src="">
-				<div class="nombre"> NOMBRE USUARIO</div>
+				<img src="{{user_foto}}">
+				<div class="nombre"> {{user.username}} </div>
 				<ul>
-					<li class="in"><a href="{% url 'jugadas' %}">PUNTOS ACUMULADOS<span>pts</span></a></li>
-					<li class="in enju"><a href="{% url 'enjuego' %}">PUNTOS EN JUEGO <br><span>en juego</span></a></li>
+					<li class="in"><a href="{% url 'jugadas' %}">{{pts.0.acumulados}}<span>pts</span></a></li>
+					<li class="in enju"><a href="{% url 'enjuego' %}">{{pts.0.enJuego}}<br><span>en juego</span></a></li>
 					<li class="in"><a href="{% url 'ranking' %}" class="b1">Ranking</a></li>
 					<li class="in"><a href="{% url 'suscripcion' %}" class="b2">Suscribete VIP</a></li>
 					<li class="in"><a href="#" class="b3">Recarga</a></li>
@@ -29,12 +29,14 @@
 			<div class="categoria">{# CATEGORIAS PARA LOS TIPOS DE JUEGOS #}
 				<p id="pulsa">DEPORTES</p>
 				<ul class="prueba2" id="prueba2">
-					<li>
-						<a href="">
-							<img src="#">
-							<span>NOMBRE DEPORTE</span>
-						</a>
-					</li>	
+					{% for  deportes in lista_deportes  %}
+						<li>
+							<a href="/deporte/{{deportes.id_deportes}}" class="a{{deportes.id_deportes}}">
+								<img src="/media/{{deportes.foto_d}}">
+								<span>{{deportes.deportes}}</span>
+							</a>
+						</li>
+					{% endfor %}
 				</ul>
 				<p>POTE</p>
 				<p>QUINELAS</p>

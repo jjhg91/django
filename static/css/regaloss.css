@@ -230,12 +230,12 @@ div.padre {
     padding-bottom: 30px;
     border-radius: 3px; }
 
-div.categoria {
+section.cont div.categoria {
   padding-left: 5%;
   background: #032A46;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px; }
-  div.categoria ul li {
+  section.cont div.categoria ul li {
     display: inline-block;
     list-style: none;
     padding-top: 8px;
@@ -244,17 +244,17 @@ div.categoria {
     padding-right: 15px;
     color: #dcecfc;
     font-size: 0.9em; }
-  div.categoria ul li.act {
-    background-color: #176093; }
+    section.cont div.categoria ul li.act {
+      background-color: #176093; }
 
-div.opt {
+section.cont div.opt {
   font-size: 1.3em;
   font-weight: bold;
   margin-left: 30px;
   margin-top: -15px;
   color: #dcecfc; }
 
-span.per {
+section.cont span.per {
   background-color: #176093;
   display: inline-block;
   margin-right: 30px;
@@ -262,27 +262,27 @@ span.per {
   padding-right: 5px;
   color: #dcecfc; }
 
-div.perfil {
+section.cont div.perfil {
   margin: 40px 20px 20px 20px;
   border: 2px solid #032A46;
   border-radius: 5px; }
-  div.perfil div.susss div.unid {
+  section.cont div.perfil div.susss div.unid {
     background: #032A46;
     display: inline-block;
     border-radius: 10px;
     margin: 2%; }
-    div.perfil div.susss div.unid img {
+    section.cont div.perfil div.susss div.unid img {
       display: block;
       width: 200px;
       height: 150px;
       border-radius: 5px; }
-    div.perfil div.susss div.unid p {
+    section.cont div.perfil div.susss div.unid p {
       padding: 5px;
       background: #176093;
       margin: 5px;
       border-radius: 10px;
       font-weight: bold; }
-    div.perfil div.susss div.unid a {
+    section.cont div.perfil div.susss div.unid a {
       display: block;
       background: #be2e2e;
       border-radius: 10px;
@@ -292,16 +292,16 @@ div.perfil {
       text-decoration: none;
       border-bottom: 3px solid #501313;
       box-shadow: 5px 5px rgba(44, 44, 44, 0.4); }
-    div.perfil div.susss div.unid:hover {
-      background: #781d1d;
-      border-bottom: 2px solid #501313;
-      box-shadow: 3.5px 3.5px rgba(44, 44, 44, 0.7);
-      margin-bottom: 6px; }
-    div.perfil div.susss div.unid:active {
-      background: #501313;
-      box-shadow: 2px 2px rgba(44, 44, 44, 0.9); }
+      section.cont div.perfil div.susss div.unid a:hover {
+        background: #781d1d;
+        border-bottom: 2px solid #501313;
+        box-shadow: 3.5px 3.5px rgba(44, 44, 44, 0.7);
+        margin-bottom: 6px; }
+      section.cont div.perfil div.susss div.unid a:active {
+        background: #501313;
+        box-shadow: 2px 2px rgba(44, 44, 44, 0.9); }
 
-form input[type='submit'] {
+section.cont form input[type='submit'] {
   color: red; }
 
 footer.pie {

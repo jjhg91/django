@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from apps.gifts.views import regalos
+
+from django.contrib.auth.decorators import login_required
+
 urlpatterns = [
-    url(r'^regalos/', regalos.as_view(), name='regalos'),
+    url(r'^regalos/', login_required(regalos.as_view()), name='regalos'),
 ]

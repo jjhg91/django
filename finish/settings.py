@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.context.context_processors.my_processor',
             ],
         },
     },
@@ -131,6 +132,13 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')#'C:/Users/JHG/Desktop/desarrolloF/finish/media/'
 MEDIA_URL = '/media/'
 
+AUTH_PROFILE_MODULE = 'users.usuarios'
+
+
+
 
 from django.core.urlresolvers import reverse_lazy
+
+LOGIN_URL = '/'
+
 LOGIN_REDIRECT_URL = reverse_lazy('inicio/')
