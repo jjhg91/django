@@ -22,11 +22,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('apps.gifts.urls')),
+    url(r'^regalos/', include('apps.gifts.urls')),
     url(r'^partido/', include('apps.plays.urls')),
-    url(r'^', include('apps.promotions.urls')),
-    url(r'^', include('apps.social.urls')),
-    url(r'^', include('apps.sports.urls')),
+    url(r'^promociones/', include('apps.promotions.urls')),
+    url(r'^social/', include('apps.social.urls')),
+    url(r'^deporte/', include('apps.sports.urls')),
     url(r'^', include('apps.startContact.urls')),
     url(r'^perfil/', include('apps.users.urls')),
 ]

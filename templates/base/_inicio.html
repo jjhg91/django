@@ -6,6 +6,7 @@
 	{% load staticfiles %}
 	{% block statics %}
 	{% endblock %}
+	
 </head>
 <body>
 
@@ -18,8 +19,8 @@
 				<img src="{{user_foto}}">
 				<div class="nombre"> {{user.username}} </div>
 				<ul>
-					<li class="in"><a href="{% url 'jugadas' %}">{{pts.0.acumulados}}<span>pts</span></a></li>
-					<li class="in enju"><a href="{% url 'enjuego' %}">{{pts.0.enJuego}}<br><span>en juego</span></a></li>
+					<li class="in"><a href="{% url 'jugadas' url_jugadas='all' %}">{{pts.0.acumulados}}<span>pts</span></a></li>
+					<li class="in enju"><a href="{% url 'jugadas' url_jugadas='waiting' %}">{{pts.0.enJuego}}<br><span>en juego</span></a></li>
 					<li class="in"><a href="{% url 'ranking' %}" class="b1">Ranking</a></li>
 					<li class="in"><a href="{% url 'suscripcion' %}" class="b2">Suscribete VIP</a></li>
 					<li class="in"><a href="#" class="b3">Recarga</a></li>

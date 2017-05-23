@@ -87,7 +87,7 @@ class jugadas(models.Model):
 				self.puntosGanar = self.puntosJugados * self.id_partidos1.visitante
 				print('GANAR: ',self.puntosGanar)	
 
-		super(jugadas, self).save(*args,**kwargs)	
+		super(jugadas, self).save(*args,**kwargs)
 #ACTUALIZANDO LA TABLA PUNTOS CON LAS JUGADAS HECHAS
 		ho=jugadas.objects.filter(id_usuarios1= self.id_usuarios1).values('id_usuarios1').annotate(jugadas=Sum('puntosJugados'))
 		print(ho)

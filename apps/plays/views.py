@@ -6,7 +6,7 @@ from apps.plays.models import partidos
 from apps.plays.forms import jugadaForm
 
 class partid(DetailView):
-	template_name = "partido.html"
+	template_name = "plays/partido.html"
 	model = partidos
 	pk_url_kwarg = 'id_partidos'
 	context_object_name = 'partido'
@@ -15,7 +15,7 @@ class partid(DetailView):
 
 
 class partido(FormView):
-	template_name = "partido.html"
+	template_name = "plays/partido.html"
 	form_class = jugadaForm
 	success_url = '/partido/1'
 	pk_url_kwarg = 'id_partidos'

@@ -1,0 +1,74 @@
+{% extends 'base/_inicio.html' %}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/sports/inicio.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock statics %}
+
+
+
+{% block section %}
+	{# FAVORITO #}
+	<br>
+
+	<div class="part">
+		<div class="opt">
+			<span class="deport">Deporte Favorito</span>
+		</div>
+		<div class="tabla">
+			<img src="media/{{partidos.id_ligas2.id_deportes1.foto_d}}" class="deporte">
+			<div class="info">
+				<p class="deport">HOME</p>
+				<p class="deport vs">VS</p>
+				<p class="deport">VISITANTE</p>
+				<div class="inf">
+					<time class="fecha">FECHA</time>
+					<a href="#" class="liga">LIGA</a>
+					<p>N°JUGADA</p>
+				</div>
+				<div class="boton">
+					<a href="#">
+						<span>Jugar</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{# MAS JUGADOS #}
+	<div class="part">
+		<div class="opt">
+			<span class="deport">Mas jugados</span>
+		</div>
+		
+		<div class="tabla">
+			<img src="#" class="deporte">
+			<div class="info">
+				<p class="deport">HOME</p>
+				<p class="deport vs">VS</p>
+				<p class="deport">VISITANTE</p>
+				<div class="inf">
+					<time class="fecha">FECHA</time>
+					<a href="#" class="liga">LIGA</a>
+					<p>N°JUGADA</p>
+				</div>
+				<div class="boton">
+					<a href="#">
+						<span>Jugar</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{# ESPACIO INFERIOR #}
+	<br>
+{% endblock section %}
+
+{% block aside %}
+	
+{% endblock aside %}
+

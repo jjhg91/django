@@ -1,0 +1,59 @@
+{% extends 'base/_inicio.html' %}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/sports/deporte.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock statics %}
+
+{% block section %}
+	<div class="part">
+		<div class="opt">
+			<span class="deport">DEPORTE</span>
+		</div>
+
+
+	{{msj}}
+
+	{% for partidos in object_list  %}	
+		
+			<div class="tabla">
+				<img src="/media/{{partidos.id_ligas2.id_deportes1.foto_d}}" class="deporte">
+				<div class="info">
+					<p class="deport">HOME: {{partidos.id_equiposh.equipos}}</p>
+					<p class="deport vs">VS</p>
+					<p class="deport">VISITANTE: {{partidos.id_equiposv.equipos}}</p>
+					<div class="inf">
+						<time class="fecha">FECHA: {{partidos.fecha}}</time>
+						<a href="#" class="liga">LIGA: {{partidos.id_ligas2.ligas}}</a>
+					</div>
+					<div class="boton">
+						<a href="/partido/{{partidos.id_partidos}}">
+							<span>Jugar</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		
+	{% endfor %}
+	</div>
+{% endblock section %}
+
+
+
+{% block aside %}
+
+	{% for ligas in liga %}
+		<div class="lig">
+			<p>LIGAS </p>
+			<a class="lig" href="liga/nombre_de_liga">
+				<div class="liga">  
+					<span>NOMBRE DE LIGA: {{ligas.ligas}}</span>
+				</div>
+			</a>
+		</div>
+	{% endfor %}
+
+{% endblock aside %}

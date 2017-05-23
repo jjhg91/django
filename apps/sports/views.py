@@ -3,11 +3,11 @@ from django.views.generic import TemplateView, ListView, DetailView
 from apps.sports.models import equipos, deportes, ligas
 from apps.plays.models import partidos
 
-from django.http import HttpResponseRedirect, HttpResponse
+#from django.http import HttpResponseRedirect, HttpResponse
 # Create your views here.
 
 class inicio(ListView):
-	template_name = "inicio.html"
+	template_name = "sports/inicio.html"
 	model = equipos
 	#queryset = equipos.objects.filter(equipos='barcelona')
 	def get_context_data(self, **kwargs):
@@ -16,10 +16,10 @@ class inicio(ListView):
 		return context
 
 	
-from django.shortcuts import get_object_or_404
+#from django.shortcuts import get_object_or_404
 
 class deporte(ListView):
-	template_name = "deporte.html"
+	template_name = "sports/deporte.html"
 	model = partidos
 
 
@@ -56,7 +56,7 @@ class deporte(ListView):
 
 
 class liga(TemplateView):
-	template_name = "liga.html"
+	template_name = "sports/liga.html"
 
 
 

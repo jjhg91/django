@@ -4,11 +4,6 @@ from apps.plays.models import jugadas,partidos
 
 class jugadaForm(forms.ModelForm):
 	
-	opt = ( 	(2,'home'),
-				(3,'empate'),
-				(4,'visitante'),
-			)
-
 	class Meta:
 		model = jugadas
 #		exclude = ['puntosGanar','fechaJugada','id_rjugada1','id_jugada',]

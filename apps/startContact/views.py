@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 
 class index(FormView):
 	form_class = formlogin
-	template_name = "index.html"
+	template_name = "startContact/index.html"
 	success_url = 'inicio/'
 	#reverse_lazy('index')
 

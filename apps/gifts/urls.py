@@ -20,5 +20,5 @@ from apps.gifts.views import regalos
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    url(r'^regalos/', login_required(regalos.as_view()), name='regalos'),
+    url(r'^$', login_required(regalos.as_view()), name='regalos'),
 ]

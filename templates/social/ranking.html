@@ -1,0 +1,56 @@
+{% extends 'base/_basica.html' %}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/social/ranking.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock statics %}
+
+{% block section %}
+
+	<div class="categoria">
+		<ul>	
+			<li><a href="jugadas.php" class="act">Ranking</a></li>
+		</ul>
+
+	</div>
+	<div class="perfil">
+		<div class="opt">
+			<span class="gan"><a href="ranking.php">Top puntos</a></span>
+			<span class="gan"><a href="ranking.php?id=topjugadas">Top jugada mas alta</a></span>
+			<span class="gan"><a href="ranking.php?id=topaciertos">Top aciertos</a></span>
+		</div>					
+				
+		<div class="top puntos">
+			<style type="text/css">
+				div.top {
+				background-image: url("imagenes/banner/'.$h.'");
+				background-size: 100% 100%;
+				 }
+			</style>
+			<img src="imagenes/perfil/'.$tr.'" class="foot">
+			<span><p>'.$rt.'</p> <p>Puntos: '.$v.'</p></span>
+		</div>			
+			
+
+		<div class="top jugadamasalta">
+			<style type="text/css">
+				div.top {
+				background-image: url("imagenes/banner/'.$h.'");
+				background-size: 100% 100%;
+				 }
+			</style>
+			<img src="imagenes/perfil/'.$tr.'" class="foot">
+			<span><p>'.$rt.'</p> <p class="topjugadas">'.$home.' vs '.$visitante.'partdo '.$fecha.' Ha jugado al: '.$jugada.' '.$v.'</p></span>
+		</div>
+
+		<div class="top acierto">
+			<span class="icon-cross"></span>
+			<p>Has perdido '.$punto.' puntos en el partido '.$home.' vs '.$visitante.' apostando a '.$jugada.' a cuota '.$cuota.' fecha: '.$fecha.'</p>
+		</div>
+		
+	</div>
+
+{% endblock section %}

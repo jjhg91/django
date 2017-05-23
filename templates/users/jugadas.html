@@ -1,0 +1,50 @@
+{% extends 'base/_perfil.html'%}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/users/jugadas.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+{% endblock statics %}
+
+{% block section %}
+	<div class="opt">
+		<span class="gan"><a href="{% url 'jugadas' url_jugadas='all' %}">Todas</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_jugadas='waiting' %}">En Juego</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_jugadas='earned' %}">Ganadas</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_jugadas='losses' %}">Perdidos</a></span>
+	</div>
+	
+		
+	{% for id_jugadas in object_list  %}
+			
+		{% if id_jugadas.id_rjugada1.id_rjugada == 1 %}
+			{% if url == 'all' or url == 'waiting' %}
+				<div class="enjuego">
+					<span class=" icon-clock"></span>
+					<p>Has jugado {{id_jugadas.puntosJugados}} puntos en el partido {{id_jugadas.id_partidos1.id_equiposh}} vs {{id_jugadas.id_partidos1.id_equiposv}} apostando a {{id_jugadas.jugada}} a ganar {{id_jugadas.puntosGanar}} fecha: {{id_jugadas.fechaJugada}}</p>
+				</div>
+			{% endif %}
+		
+		{% elif id_jugadas.id_rjugada1 == id_jugadas.jugada %}
+			{% if url == 'all' or url == 'earned' %}		
+				<div class="gano">
+					<span class="icon-checkmark"></span>
+					<p>Has ganado {{id_jugadas.puntosJugados}} puntos en el partido {{id_jugadas.id_partidos1.id_equiposh}} vs {{id_jugadas.id_partidos1.id_equiposv}} apostando a {{id_jugadas.jugada}} a ganar {{id_jugadas.puntosGanar}} fecha: {{id_jugadas.fechaJugada}}</p>
+				</div>
+			{% endif %}
+
+		{% elif id_jugadas.id_rjugada1 != id_jugadas.jugada %}
+			{% if url == 'all' or url == 'losses' %}
+				<div class="perdio">
+					<span class="icon-cross"></span>
+					<p>Has perdido {{id_jugadas.puntosJugados}} puntos en el partido {{id_jugadas.id_partidos1.id_equiposh}} vs {{id_jugadas.id_partidos1.id_equiposv}} apostando a {{id_jugadas.jugada}} a ganar {{id_jugadas.puntosGanar}} fecha: {{id_jugadas.fechaJugada}}</p>
+				</div>
+			{% endif %}
+		
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock section %}

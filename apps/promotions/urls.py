@@ -21,7 +21,7 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
 	#url(r'^promociones/', promociones.as_view(), name='promociones'),
-	url(r'^suscripcion/', login_required(suscripcion.as_view()), name='suscripcion'),
+	url(r'^suscripcion/$', login_required(suscripcion.as_view()), name='suscripcion'),
 
     
 ]

@@ -13,16 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from apps.users.views import perfil, enjuego, jugadas, referidos
+from apps.users.views import jugada, perfil, enjuego, referidos
 
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
 	url(r'^$', login_required(perfil.as_view()), name='perfil'),
-	url(r'^enjuego/', login_required(enjuego.as_view()), name='enjuego'),
-	url(r'^jugadas/', login_required(jugadas.as_view()), name='jugadas'),
-	url(r'^referidos/', login_required(referidos.as_view()), name='referidos'),
+	url(r'^enjuego/$', login_required(enjuego.as_view()), name='enjuego'),
+	url(r'^jugadas/(?P<url_jugadas>\w+)/$', login_required(jugada.as_view()), name='jugadas'),
+	url(r'^referidos/$', login_required(referidos.as_view()), name='referidos'),
 	
 ]

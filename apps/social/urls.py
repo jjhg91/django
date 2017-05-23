@@ -20,5 +20,5 @@ from apps.social.views import ranking
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    url(r'^ranking/', login_required(ranking.as_view()), name='ranking'),
+    url(r'^ranking/$', login_required(ranking.as_view()), name='ranking'),
 ]
