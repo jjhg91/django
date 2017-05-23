@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^partido/', include('apps.plays.urls')),
     url(r'^promociones/', include('apps.promotions.urls')),
     url(r'^social/', include('apps.social.urls')),
-    url(r'^deporte/', include('apps.sports.urls')),
+    url(r'^', include('apps.sports.urls')),
     url(r'^', include('apps.startContact.urls')),
     url(r'^perfil/', include('apps.users.urls')),
 ]

@@ -11,7 +11,7 @@
 {% block section %}
 	<div class="part">
 		<div class="opt">
-			<span class="deport">DEPORTE</span>
+			<span class="deport">DEPORTE: {{object_list.0.id_ligas2.id_deportes1}}</span>
 		</div>
 
 
@@ -48,7 +48,7 @@
 	{% for ligas in liga %}
 		<div class="lig">
 			<p>LIGAS </p>
-			<a class="lig" href="liga/nombre_de_liga">
+			<a class="lig" href="{% url 'liga' url_liga=1 %}">
 				<div class="liga">  
 					<span>NOMBRE DE LIGA: {{ligas.ligas}}</span>
 				</div>

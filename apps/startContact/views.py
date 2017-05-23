@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, FormView
 from django.http import HttpResponseRedirect, HttpResponse
 # Create your views here.
 from django.contrib.auth import authenticate, login
-from apps.startContact.forms import  formlogin
+from apps.startContact.forms import  formlogin 
 #from django.core.urlresolvers import reverse_lazy
 
 from django.contrib.auth.models import User

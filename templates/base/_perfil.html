@@ -32,7 +32,7 @@
 				<ul class="prueba2" id="prueba2">
 					{% for  deportes in lista_deportes  %}
 						<li>
-							<a href="/deporte/{{deportes.id_deportes}}" class="a{{deportes.id_deportes}}">
+							<a href="{% url 'deporte' url_deporte=deportes.id_deportes %}" class="a{{deportes.id_deportes}}">
 								<img src="/media/{{deportes.foto_d}}">
 								<span>{{deportes.deportes}}</span>
 							</a>
@@ -64,7 +64,7 @@
 					<li><a href="{% url 'perfil' %}" class="act">PERFIL</a></li>
 					<li><a href="{% url 'jugadas' url_jugadas='all' %}">JUGADAS</a></li>
 					<li><a href="#">PROMOCIONES</a></li>
-					<li><a href="{% url 'referidos' %}">REFERIDOS</a></li>
+					<li><a href="{% url 'referido' url_referido='primarios' %}">REFERIDOS</a></li>
 					<li><a href="#">SOCIAL</a><li>
 					<li><a href="#">REGALOS</a></li>
 					<li><a href="#">RECARGAS</a></li>

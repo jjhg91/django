@@ -20,7 +20,7 @@ from apps.sports.views import inicio, deporte, liga
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-	url(r'^inicio/$', login_required(inicio.as_view()), name='inicio'),
-	url(r'^(?P<hii>\d+)/$', login_required(deporte.as_view()), name='deporte'),
-	url(r'^liga/', login_required(liga.as_view()), name='liga'),
+	url(r'^inicio', login_required(inicio.as_view()), name='inicio'),
+	url(r'^deporte/(?P<url_deporte>\d+)/$', login_required(deporte.as_view()), name='deporte'),
+	url(r'^liga/(?P<url_liga>\d+)/$', login_required(liga.as_view()), name='liga'),
 ]

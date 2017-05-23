@@ -12,18 +12,18 @@
 {% block section %}
 	
 	<div class="cate">
-		<span class="ref"><a href="referidos.php?user=<?php echo $user; ?>">Referidos</a></span>
-		<span class="ref"><a href="referidos.php?user=<?php echo $user; ?>&ref=subreferidos">Sub referidos</a></span>
+		<span class="ref"><a href="{% url 'referido' url_referido='primario' %}">Referidos</a></span>
+		<span class="ref"><a href="{% url 'referido' url_referido='secundario' %}">Sub referidos</a></span>
 	</div>
 
 	<div class="referido">
 		<span class="icon-user-plus"></span>
-		<p>Felicidades tienes un nuevo Referido: <span class="referido">'.$aref['usuario'].' </span></p>
+		<p>Felicidades tienes un nuevo Referido: <span class="referido">NOMBRE DEL REFERIDO</span></p>
 	</div>
 
 	<div class="referido">
 		<span class="icon-user-plus"></span>
-		<p>Felicidades tienes un nuevo Sub-referido: <span class="referido">'.$asref['usuario'].' </span></p>
+		<p>Felicidades tienes un nuevo Sub-referido: <span class="referido">NOMBRE DEL REFERIDO</span></p>
 	</div>
 
 {% endblock section %}

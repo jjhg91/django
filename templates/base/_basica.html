@@ -31,7 +31,7 @@
 				<ul class="prueba2" id="prueba2">
 					{% for  deportes in lista_deportes  %}
 						<li>
-							<a href="/deporte/{{deportes.id_deportes}}" class="a{{deportes.id_deportes}}">
+							<a href="{% url 'deporte' url_deporte=deportes.id_deportes %}" class="a{{deportes.id_deportes}}">
 								<img src="/media/{{deportes.foto_d}}">
 								<span>{{deportes.deportes}}</span>
 							</a>

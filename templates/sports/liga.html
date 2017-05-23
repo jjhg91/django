@@ -9,22 +9,50 @@
 {% endblock statics %}
 
 {% block section %}
-	<span class="deport">LIGA</span>
-	<div class="tabla">
-		<img src="imagenes/bat.png" class="deporte">
-		<div class="info">
-			<p class="deport">HOME</p>
-			<p class="deport vs">VS</p>
-			<p class="deport">VISITANTE</p>
-			<div class="inf">
-				<time class="fecha">FECHA</time>
-				<a href="#" class="liga">LIGA</a>
-			</div>
-			<div class="boton">
-				<a href="partido.php?partido='.$link.'">
-					<span>Jugar</span>
-				</a>
-			</div>
+
+	<div class="part">
+		<div class="opt">
+			<span class="deport">LIGA: {{object_list.0.id_ligas2}}</span>
 		</div>
+
+		{% for id_partidos in object_list %}
+			<div class="tabla">
+				<img src="/media/{{id_partidos.id_ligas2.id_deportes1.foto_d}}" class="deporte">
+				<div class="info">
+					<p class="deport">HOME: {{id_partidos.id_equiposh}}</p>
+					<p class="deport vs">VS</p>
+					<p class="deport">VISITANTE: {{id_partidos.id_equiposv}}</p>
+					<div class="inf">
+						<time class="fecha">FECHA: {{id_partidos.fecha}}</time>
+						<a href="#" class="liga">LIGA: {{id_partidos.id_ligas2}}</a>
+					</div>
+					<div class="boton">
+						<a href="partido.php?partido='.$link.'">
+							<span>Jugar</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
 	</div>
+
 {% endblock section %}
+
+
+{% block aside %}
+
+	<div class="lig">
+		<p>EQUIPOS</p>
+
+		{% for id_equipos in equipo %}
+			<a class="lig" href="#">
+				<div class="liga">  
+					<span>NOMBRE DE EQUIPO: {{id_equipos.equipos}}</span>
+				</div>
+			</a>
+		{% endfor %}
+
+	</div>
+
+{% endblock aside %}

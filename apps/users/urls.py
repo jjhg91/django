@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from apps.users.views import jugada, perfil, enjuego, referidos
+from apps.users.views import jugada, perfil, enjuego, referido
 
 from django.contrib.auth.decorators import login_required
 
@@ -23,6 +23,6 @@ urlpatterns = [
 	url(r'^$', login_required(perfil.as_view()), name='perfil'),
 	url(r'^enjuego/$', login_required(enjuego.as_view()), name='enjuego'),
 	url(r'^jugadas/(?P<url_jugadas>\w+)/$', login_required(jugada.as_view()), name='jugadas'),
-	url(r'^referidos/$', login_required(referidos.as_view()), name='referidos'),
+	url(r'^referidos/(?P<url_referido>["primarios","secundarios"]\w+)/$', login_required(referido.as_view()), name='referido'),
 	
 ]

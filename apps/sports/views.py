@@ -24,19 +24,18 @@ class deporte(ListView):
 
 
 	def get_queryset(self,**kwargs):
-		part = self.kwargs['hii']
+		part = self.kwargs['url_deporte']
 		queryset = partidos.objects.filter(id_ligas2__id_deportes1__id_deportes=part)
 		return queryset
 
 
 	def get_context_data(self,**kwargs):
 		context = super(deporte, self).get_context_data(**kwargs)
-		context['liga'] = ligas.objects.filter(id_deportes1 = self.kwargs['hii'])
+		context['liga'] = ligas.objects.filter(id_deportes1 = self.kwargs['url_deporte'])
 		context['object'] = self.object_list
 		if not context['object']:
 			context['msj'] = 'Elegir un deporte por favor'
-			
-
+	
 		return context
 
 
@@ -48,15 +47,24 @@ class deporte(ListView):
 #			return HttpResponse('Hello, World! %s' %part)
 #		else:
 #			return HttpResponse('aqui %s' %part)
-	
+		
 
 
-	
-	
-
-
-class liga(TemplateView):
+class liga(ListView):
 	template_name = "sports/liga.html"
+	model = partidos
+
+	def get_queryset(self,**kwargs):
+		lig = self.kwargs['url_liga']
+		queryset = partidos.objects.filter(id_ligas2=lig)
+		return queryset
+
+
+	def get_context_data(self, **kwargs):
+		context = super(liga, self).get_context_data(**kwargs)
+		li = self.kwargs['url_liga']
+		context['equipo'] = equipos.objects.filter(ligas1=li)
+		return context
 
 
 
