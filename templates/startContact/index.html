@@ -16,7 +16,6 @@
 
 {% block section %}
 	<a href="admin/" id="chao">Admin</a><br>
-
 	
 	<div class="prueba" name="prueba">PRUEBA</div>
 	<div class="contenedor-formulario">
@@ -37,7 +36,7 @@
 					<div class="submit">
 						<input type="submit" id="btn-submit" value="Login">
 						<br>
-						<a href="#">Regitrate</a>
+						<a href="{% url 'registro' url_registro=0 %}">Regitrate</a>
 					</div>
 			</form>
 		</div>

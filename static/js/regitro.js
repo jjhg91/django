@@ -46,11 +46,11 @@ var validarInputs = function(){
 };
 
 var validarRadios = function(){
-	var opciones = document.getElementsByName('sexo'),
+	var opciones = document.getElementsByName('id_genero1'),
 		resultado = false;
 
 	for (var i = 0; i < elementos.length; i++) {
-		if(elementos[i].type == "radio" && elementos[i].name == "sexo"){
+		if(elementos[i].type == "radio" && elementos[i].name == "id_genero1"){
 			// Recorremos los radio button
 			for (var o = 0; o < opciones.length; o++) {
 				if (opciones[o].checked) {

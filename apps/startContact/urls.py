@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from apps.startContact.views import index
+from apps.startContact.views import index, registro
 
 urlpatterns = [
    url(r'^$', index.as_view(), name='index'),
+   url(r'^registro/(?P<url_registro>\d+)/$', registro.as_view(), name='registro'),
 ]

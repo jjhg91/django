@@ -41,6 +41,7 @@ class referido(ListView):
 	    context = super(referido, self).get_context_data(**kwargs)
 	    url = self.kwargs['url_referido']
 	    usuario = self.request.user
-	    context['sub'] = subReferidos.objects.filter(id_usuarios9=usuario)
+	    context['subreferidos'] = subReferidos.objects.filter(id_usuarios9=usuario)
 	    context['url'] = url
+
 	    return context

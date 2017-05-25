@@ -1,0 +1,112 @@
+{% extends 'base/_index.html' %}
+
+{% block title %}
+	Regitro
+{% endblock title %}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/startContact/registro.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/blogear.js' %}"></script>
+{% endblock statics %}
+
+{% block section %}
+
+
+
+	<div class="contenedor-formulario">
+		<div class="wrap">
+			<form action="" class="formulario" name="formulario_registro" method="POST">
+				{% csrf_token %}
+				
+				<div class="input-group">
+					{% if form.errors.items  %}
+						<ul><p>ERRORES: </p>
+							{% for label,message in form.errors.items %}
+								<li>{{message}}</li>
+			
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+
+				<div class="input-group">
+					{#<input type="text" id="text" name="text">#}
+					{{form.username}}
+					<label class="label" for="text">Usuario</label>
+				</div>
+
+				<div class="input-group">
+					{#<input type="email" id="email" name="email">#}
+					{{form.email}}
+					<label class="label" for="email">Correo</label>
+				</div>
+
+				<div class="input-group">
+					{#<input type="email" id="email2" name="email2">#}
+					{{form.email2}}
+					<label class="label" for="email2">Repetir Correo</label>
+				</div>
+				
+				<div class="input-group">
+					{#<input type="password" id="pass" name="pass">#}
+					{{form.password}}
+					<label class="label" for="password">Contraseña</label>
+				</div>
+				
+				<div class="input-group">
+					{#<input type="password" id="pass2" name="pass2">#}
+					{{form.password2}}
+					<label class="label" for="password2">Repetir Contraseña</label>
+				</div>
+
+				<div class="input-group">
+					{#<select id="pais" name="pais">#}
+						{#<option>Seleccionar Pais</option>#}	
+						{#<option value="">PAIS</option>#}
+					{#</select>#}
+					{{form.id_pais1}}
+				</div>
+				
+				<div class="input-group">
+					{#<select id="zhoraria" name="zhoraria">#}
+					{#	<option>Seleccionar zona horaria</option>#}
+					{#	<option value="">HORA Y CIUDAD</option>#}
+					{#</select>#}
+					{{form.id_zhoraria1}}
+				</div>
+
+				<div class="input-group radio error">
+					{#<input type="radio" name="sexo" id="hombre" value="2">#}
+					{{form.id_genero1.0.tag}}
+					<label for="genero_0">Hombre</label>
+					{#<input type="radio" name="id_genero1" id="mujer" value="3">#}
+					{{form.id_genero1.1.tag}}
+					<label for="genero_1">Mujer</label>
+
+				</div>
+
+				<div class="input-group checkbox error">
+					<input type="checkbox" name="terminos" id="terminos" value="true">
+					<label for="terminos">Acepto los terminos y condiciones</label>
+				</div>
+
+				<div class="novisto">
+					{#<input type="text" name="referido" value="REFERIDO" readonly="readonly">#}
+					{{form.referido}}
+				</div>
+		
+				<input type="submit" id="btn-submit" value="Registrarse"> 
+				
+			</form>
+		</div>
+	</div>
+
+	{% load staticfiles %}
+	<script src="{% static 'js/regitro.js' %}"></script>
+
+
+	
+{% endblock section %}
