@@ -142,3 +142,7 @@ from django.core.urlresolvers import reverse_lazy
 LOGIN_URL = '/'
 
 LOGIN_REDIRECT_URL = reverse_lazy('inicio/')
+
+#SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+#SESSION_COOKIE_AGE = 60

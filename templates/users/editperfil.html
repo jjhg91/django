@@ -1,0 +1,66 @@
+{% extends 'base/_perfil.html' %}
+
+{% load staticfiles %}
+{% block statics %}
+	<link rel="stylesheet" href="{% static 'css/users/perfil.css' %}">
+	<link rel="stylesheet" href="{% static 'iconos/icomoon/style.css' %}">
+	<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+	<script src="{% static 'js/inicio.js' %}"></script>
+
+{% endblock statics %}
+
+{% block section %}
+	
+	<div class="opt">
+		<span class="per"><a href="{% url 'perfil' url_perfil=url_perfi %}">Perfil</a></span>
+		{% if url_perfi == user.pk %}
+			<span class="per"><a href="{% url 'editperfil' url_perfil=user.pk %}">Editar perfil</a></span>
+			<span class="per"><a href="{% url 'infpersonal' url_perfil=user.pk %}">Informacion personal</a></span>
+		{% endif %}
+	</div>
+	
+
+	{% if url_perfi == user.pk %}
+
+		<select id="deporte">
+			<option>elije algo</option>
+			<option value="1">futbol</option>
+			<option value="2">basebol</option>
+
+		</select>
+		<select id="liga"></select>
+		<div id="equipos"></div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		{% load staticfiles%}
+		<script src="{% static 'js/prueba2.js' %}"></script>
+
+
+
+		<p>editando el perfil</p>
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{form.as_p}}
+			<br>
+
+			<br>
+			<div id="divResult"></div>
+			<p><b>aqui la prueba</b></p>
+			<div style="height: 4em; width: 10em; overflow: auto;">
+			{{form.equiposFavoritos}}
+			</div>
+			<input type="submit" value="PROBAR">
+
+		</form>	
+		
+	{% endif %}
+	
+	
+
+
+
+
+{% endblock section %}

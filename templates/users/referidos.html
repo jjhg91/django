@@ -12,8 +12,8 @@
 {% block section %}
 	
 	<div class="cate">
-		<span class="ref"><a href="{% url 'referido' url_referido='primario' %}">Referidos</a></span>
-		<span class="ref"><a href="{% url 'referido' url_referido='secundario' %}">Sub referidos</a></span>
+		<span class="ref"><a href="{% url 'referido' url_perfil=url_perfi url_referido='primario' %}">Referidos</a></span>
+		<span class="ref"><a href="{% url 'referido' url_perfil=url_perfi url_referido='secundario' %}">Sub referidos</a></span>
 	</div>
 	
 	{% if url == 'primario' %}

@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from apps.users.views import jugada, perfil, enjuego, referido
+from apps.users.views import jugada, perfil, editperfil, infpersonal, enjuego, referido, busqueda
 
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-	url(r'^$', login_required(perfil.as_view()), name='perfil'),
-	url(r'^enjuego/$', login_required(enjuego.as_view()), name='enjuego'),
-	url(r'^jugadas/(?P<url_jugadas>\w+)/$', login_required(jugada.as_view()), name='jugadas'),
-	url(r'^referidos/(?P<url_referido>["primarios","secundarios"]\w+)/$', login_required(referido.as_view()), name='referido'),
-	
+	url(r'^(?P<url_perfil>\d+)/$', login_required(perfil.as_view()), name='perfil'),
+    url(r'^(?P<url_perfil>\d+)/edit/$', login_required(editperfil.as_view()), name='editperfil'),
+    url(r'^(?P<url_perfil>\d+)/private/$', login_required(infpersonal.as_view()), name='infpersonal'),
+	url(r'^(?P<url_perfil>\d+)/jugadas/(?P<url_jugadas>\w+)/$', login_required(jugada.as_view()), name='jugadas'),
+	url(r'^(?P<url_perfil>\d+)/referidos/(?P<url_referido>["primarios","secundarios"]\w+)/$', login_required(referido.as_view()), name='referido'),
+    url(r'^busqueda/$', busqueda.as_view(), name='busqueda'),
 ]

@@ -5,7 +5,11 @@ from apps.users.models import pais,zonaHoraria,postal,nombre,apellido,natalidad,
 # Register your models here.
 #'usuario','correo','contra',
 class usuariosAdmin(admin.ModelAdmin):
-	list_display = ('id_nombre1','id_apellido1','foto','banner','id_zhoraria1')
+	list_display = ('id_nombre1','id_apellido1','get_equiposFavoritos','foto','banner','id_zhoraria1')
+	filter_horizontal = ('equiposFavoritos',)
+
+	def get_equiposFavoritos(self, obj):
+		return "\n".join([p.equipos for p in obj.equiposFavoritos.all()])
 #	list_filter = ('')
 #	search_fields = ('')
 #	filter_horizontal = ('',)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from apps.sports.models import equipos
 
 
 # Create your models here.
@@ -66,12 +67,12 @@ class genero(models.Model):
 		return self.genero
 
 
-
 class usuarios(User):
 	#id_usuarios = models.OneToOneField(User)
 	#id_usuarios = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
 	foto = models.ImageField(upload_to='perfil')
 	banner = models.ImageField(upload_to='banner')
+	equiposFavoritos = models.ManyToManyField(equipos)
 	id_zhoraria1 = models.ForeignKey(zonaHoraria, null=False, blank=False, default=1, on_delete=models.CASCADE)
 	id_pais1 = models.ForeignKey(pais, null=False, blank=False, default=1, on_delete=models.CASCADE)
 	id_genero1 = models.ForeignKey(genero, null=False, blank=False, default=1, on_delete=models.CASCADE)
@@ -142,8 +143,6 @@ class puntos(models.Model):
 		self.acumulados = acumulado
 		super(puntos, self).save(*args, **kwargs)
 		print('SUMAR PUNTOS SE ESTA EJECUTANDO')
-
-
 
 
 

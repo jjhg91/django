@@ -12,7 +12,7 @@ from apps.social.models import referidos
 class index(FormView):
 	form_class = formlogin
 	template_name = "startContact/index.html"
-	success_url = 'perfi/'
+	success_url = reverse_lazy('inicio')
 	#reverse_lazy('index')
 
 	def form_valid(self,form):
@@ -40,7 +40,7 @@ class index(FormView):
 class registro(CreateView):
 	template_name = 'startContact/registro.html'
 	form_class = formregistro
-	success_url = reverse_lazy('perfil')
+	success_url = reverse_lazy('inicio')
 
 	def get_initial(self,**kwargs):
 		initial = super(registro,self).get_initial()
@@ -62,8 +62,8 @@ class registro(CreateView):
 			if refer > 0 :
 				us = refer
 				print(us)
-				use = User.objects.get(id=us)
-				referido = User.objects.get(email=email)
+				use = User.objects.filter(id=us)
+				referido = User.objects.filter(email=email)
 
 				print('hola invitado: %s. hola invitador: %s' %(referido,use))
 				if use:

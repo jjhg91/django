@@ -10,10 +10,10 @@
 
 {% block section %}
 	<div class="opt">
-		<span class="gan"><a href="{% url 'jugadas' url_jugadas='all' %}">Todas</a></span>
-		<span class="gan"><a href="{% url 'jugadas' url_jugadas='waiting' %}">En Juego</a></span>
-		<span class="gan"><a href="{% url 'jugadas' url_jugadas='earned' %}">Ganadas</a></span>
-		<span class="gan"><a href="{% url 'jugadas' url_jugadas='losses' %}">Perdidos</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_perfil=url_perfi url_jugadas='all' %}">Todas</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_perfil=url_perfi url_jugadas='waiting' %}">En Juego</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_perfil=url_perfi url_jugadas='earned' %}">Ganadas</a></span>
+		<span class="gan"><a href="{% url 'jugadas' url_perfil=url_perfi url_jugadas='losses' %}">Perdidos</a></span>
 	</div>
 	
 		

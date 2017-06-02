@@ -3,6 +3,7 @@ from django.db.models import F,Sum,Count
 from apps.users.models import usuarios,puntos
 from apps.sports.models import deportes,ligas,equipos
 from django.contrib.auth.models import User
+from datetime import datetime   
 
 # Create your models here.
 
@@ -66,7 +67,7 @@ class jugadas(models.Model):
 	puntosJugados = models.IntegerField()
 	puntosGanar = models.IntegerField(default=0)
 	jugada = models.ForeignKey(resultadoJugadas, related_name='jugada', null=False, blank=False, on_delete=models.CASCADE)
-	fechaJugada = models.DateTimeField()
+	fechaJugada = models.DateTimeField(default=datetime.now)
 	id_rjugada1 = models.ForeignKey(resultadoJugadas, related_name='id_rjugada1',default=1, null=False, blank=False, on_delete=models.CASCADE)
 	def __str__(self):
 		return str(self.id_jugadas)

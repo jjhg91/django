@@ -9,5 +9,27 @@
 {% endblock statics %}
 
 {% block section %}
-	<p>hola</p>
+	
+	<div class="opt">
+		<span class="per"><a href="{% url 'perfil' url_perfil=url_perfi %}">Perfil</a></span>
+		{% if url_perfi == user.pk %}
+			<span class="per"><a href="{% url 'editperfil' url_perfil=user.pk %}">Editar perfil</a></span>
+			<span class="per"><a href="{% url 'infpersonal' url_perfil=user.pk %}">Informacion personal</a></span>
+		{% endif %}
+	</div>
+	
+	
+	<br>
+	<p><b>INFORMACION PERFIL</b></p><br>
+	<p>id: {{usuario.pk}}</p> 
+	<p>unsername: {{usuario.username}}</p>
+	<p>email: {{usuario.email}} </p>
+	<p>foto: {{usuario.foto}}</p>
+	<p>banenr: {{usuario.banner}}</p>
+	<p>pais: {{usuario.id_pais1}}</p>
+	<p>genero: {{usuario.id_genero1}}</p>
+	 
+
+
+
 {% endblock section %}

@@ -8,47 +8,52 @@
 	<script src="{% static 'js/inicio.js' %}"></script>
 {% endblock statics %}
 
-{% block section %}
-
+{% block section %}	
 	<p>hola</p>
-	<form action="" method="POST"> 
-	{% csrf_token %}
+	{% if form.errors.items  %}
+						<ul><p>ERRORES: </p>
+							{% for label,message in form.errors.items %}
+								<li>{{message}}</li>
 
-	{{form.jugada.2}}
-	{{form.jugada.3}}
-	{{form.jugada.4}}
-
-	
-
-	<input type="submit" value="PROBANDO">
-	</form>
+			
+							{% endfor %}
+						</ul>
+					{% endif %}
 	<p>chao</p>
 
-	<form class="for_partido" name="partidos"  action="php/jugada.php" method="POST">
+	<form class="for_partido" name="partidos"  action="" method="POST">
+		{% csrf_token %}
 		<div class="equipo">
-			<span>HOME</span>
-			<input type="radio" name="jugada" id="home" value="2">
-			<label for="home">PTS</label>
+			<span>{{part.0.id_equiposh}}</span>
+			{#<input type="radio" name="jugada" id="home" value="2">#}
+			{{form.jugada.2.tag}}
+			<label for="id_jugada_2">{{part.0.home}}</label>
 		</div>
 		<div class="equipo em">
-			<span class="em"><p class="em">empate</p></span>
-			<input type="radio" name="jugada" id="em" value="3">
-			<label for="em">PTS</label>
+			<span class="em"><p class="em">EMPATE</p></span>
+			{#<input type="radio" name="jugada" id="em" value="3">#}
+			{{form.jugada.3.tag}}
+			<label for="id_jugada_3">{{part.0.empate}}</label>
 		</div>
 		<div class="equipo">
-			<span>VISITANTE</span>
-			<input type="radio" name="jugada" id="vi" value="4">
-			<label for="vi">PTS</label>
+			<span>{{part.0.id_equiposv}}</span>
+			{#<input type="radio" name="jugada" id="vi" value="4">#}
+			{{form.jugada.4.tag}}
+			<label for="id_jugada_4">{{part.0.visitante}}</label>
 		</div>
 		<div class="inf">
-			<span class="fech">FECHA</span>
-			<p>DEPORTE</p>
-			<p>LIGA</p>
+			<span class="fech">FECHA: {{part.0.fecha}}</span>
+			<p>{{part.0.id_ligas2.id_deportes1}}</p>
+			<p>{{part.0.id_ligas2}}</p>
 		</div>
 
-		<input type="text" class="part" id="part" name="part" value="PARTIDO" readonly="readonly">
-
-		<input type="text" id="punto" name="punto" value="1">
+		{#<input type="text" class="oculto" id="oculto" name="oculto" value="PARTIDO" readonly="readonly">#}
+		{{form.id_usuarios1}}
+		{{form.id_partidos1}}
+		
+		{#<input type="text" id="punto" name="punto" value="1">#}
+		{{form.puntosJugados}}
+		
 		<input type="submit" value="Enviar">
 	</form>
 
@@ -57,5 +62,18 @@
 
 
 {% block aside %}
+	<div class="tooo">
+		{% for lista in jugadas %}
+			<div class="altj">
+				<img src="/media/{{lista.id_usuarios1.usuarios.foto}}">
+				<div class="chul">
+					<p class="nomb">{{lista.id_usuarios1}}</p>
+					<p class="jugada">{{lista.puntosJugados}} puntos por {{lista.jugada}}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 	
+
+
 {% endblock aside %}
